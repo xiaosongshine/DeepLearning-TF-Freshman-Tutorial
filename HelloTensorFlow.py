@@ -1,24 +1,29 @@
 # encode : utf-8
-
 import tensorflow as tf
-
 print("Result is : ")
 hi = tf.constant("Hello TensorFlow World", shape=[1,1])
 print("Befor Session hi is : ", end="")
 print(hi)
-
-with tf.Session() as sess:
+print(hi.shape)
     
-    hi = sess.run(hi)
-    print("After Session hi is : ", end="")
-    print(hi)
-  
+with tf.Session() as sess:
+        
+     hi = sess.run(hi)
+     print("After Session hi is : ", end="")
+     print(hi)
+     print(hi.shape)
+      
+
 """
-Result is:
-Befor Session hi is : Tensor("Const:0", shape=(1, 1), dtype=string)
+    Result is :
+	Befor Session hi is : Tensor("Const:0", shape=(1, 1), dtype=string)
+	(1, 1)
 
-2018-09-25 23:48:18.641193: I T:\src\github\tensorflow\tensorflow\core\platform\cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+	After Session hi is : [[b'Hello TensorFlow World']]
+	(1, 1)
+    
 
-After Session hi is : [[b'Hello TensorFlow World']]
+---------------------
 
+本文来自 小宋shine 的CSDN 博客 ，全文地址请点击：https://blog.csdn.net/xiaosongshine/article/details/82847725?utm_source=copy 
 """
